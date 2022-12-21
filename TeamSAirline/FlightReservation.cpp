@@ -19,6 +19,7 @@ void FlightReservation::bookFlight(string flightNo, int numOfTickets, string use
 						flight.flightList[i].setNumOfSeats(temp);
 						customer.customerCollection[j].addNewFlightToCustomerList(flight.getFlightList()[i]);
 						customer.customerCollection[j].numOfTicketsBookedByUser.push_back(numOfTickets);
+						cout << "\n\n\t\tBooking flight successfully...\n\n";
 					}
 					else
 					{
@@ -28,13 +29,14 @@ void FlightReservation::bookFlight(string flightNo, int numOfTickets, string use
 						int newNumOfTickets = customer.customerCollection[j].numOfTicketsBookedByUser.at(flightIndexInFlightList);
 						newNumOfTickets += numOfTickets;
 						customer.customerCollection[j].numOfTicketsBookedByUser.at(flightIndexInFlightList) = newNumOfTickets;
+						cout << "\n\n\t\tYour flight has been updated successfully...\n\n";
 					}
 					break;
 				}
 			}
 		}
 	}
-	if (!isFlightFound) cout << "Invalid Flight Number...! No flight with the  ID \"" + flightNo + "\" was found...\n";
+	if (!isFlightFound) cout << "\n\n\t\tInvalid Flight Number...! No flight with the number \"" + flightNo + "\" was found...\n\n";
 }
 bool FlightReservation::isFlightAlreadyAddedToCustomerList(vector<Flight> flightList, Flight flight)
 {

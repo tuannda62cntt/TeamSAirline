@@ -49,6 +49,7 @@ public:
 	void setAge(int age);
 
 	/*Methods*/
+	void addNewCustomerByAdmin();
 	void addNewCustomer();
 	bool isUniqueData(string email);
 	void searchUser(string id);

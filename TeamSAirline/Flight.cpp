@@ -134,11 +134,14 @@ void Flight::deleteFlight(string flightNumber)
         {
             isFound = true;
             flightList.erase(remove(flightList.begin(), flightList.end(), flightList[i]), flightList.end());
+            cout << "\n\n\t\tFlight \"" << flightNumber << "\" has been deleted!\n\n";
             break;
         }
     }
-    if (!isFound) cout << "Flight with given Number not found...";
-    displayFlightSchedule();
+    if (!isFound)
+    {
+        cout << "\n\n\t\tFlight with given Number not found...\n\n";
+    }
 }
 string Flight::calculateDistance(double lat1, double lon1, double lat2, double lon2)
 {

@@ -100,21 +100,21 @@ void Customer::addNewCustomer()
 {
 	printf("\nEnter your name: \t");
 	string name; cin >> name;
-	printf("Enter your email address: \t");
+	printf("Enter your username: \t");
 	string email; cin >> email;
 	while (isUniqueData(email)) 
 	{
-		printf("ERROR!!! User with the same email already exists... Use new email or login using the previous credentials....");
-		printf("Enter your email address :\t");
+		printf("\n\n\t\tERROR!!! User with the same username already exists... Use new username or login using the previous credentials....\n\n");
+		printf("Enter your username: \t");
 		cin >> email;
 	}
 	printf("Enter your password: \t");
 	string password; cin >> password;
-	printf("Enter your phone number :\t");
+	printf("Enter your phone number: \t");
 	string phone; cin >> phone;
-	printf("Enter your address :\t");
+	printf("Enter your address: \t");
 	string address; cin >> address;
-	printf("Enter your age :\t");
+	printf("Enter your age: \t");
 	int age; cin >> age;
 	customerCollection.push_back(Customer(name, email, password, phone, address, age));
 }
@@ -147,13 +147,17 @@ void Customer::searchUser(string ID)
 	}
 	if (isFound)
 	{
-		cout << "Customer found! Here is full record: \n";
+		system("CLS");
+		cout << "\n\n\t\tCustomer found! Here is full record: \n";
 		displayHeader();
 		printf("%10s", " ");
 		cout << customer.toString(1);
 		printf("%10s+-----------------------------------------------------------------------------------------------------------+\n", " ");
 	}
-	else cout << "No customer with the ID " + ID + " found!";
+	else
+	{
+		cout << "\n\n\t\tNo customer with the ID " + ID + " found!\n\n";
+	}
 }
 void Customer::editUserInfo(string id)
 {
@@ -184,8 +188,13 @@ void Customer::editUserInfo(string id)
 			break;
 		}
 	}
-	if (!isFound) cout << "No customer with the ID " + id << endl;
-	displayCustomersData();
+	if (!isFound)
+	{
+		cout << "\n\n\t\tNo customer with the ID " + id << endl;
+		cout << "\n\t\tReturning...";
+		Sleep(2000);
+		system("CLS");
+	}
 }
 void Customer::deleteUser(string id)
 {
@@ -196,11 +205,20 @@ void Customer::deleteUser(string id)
 		{
 			isFound = true;
 			customerCollection.erase(remove(customerCollection.begin(), customerCollection.end(), customerCollection[i]), customerCollection.end());
+			cout << "\n\n\t\tCustomer has been deleted!\n\n";
+			cout << "\t\tReturning...";
+			Sleep(2000);
+			system("CLS");
 			break;
 		}
 	}
-	if (!isFound) cout << "No customer with the id " + id + " found!";
-	displayCustomersData();
+	if (!isFound)
+	{
+		cout << "\n\n\t\tNo customer with the id " + id + " found...\n\n";
+		cout << "\t\tReturning...";
+		Sleep(2000);
+		system("CLS");
+	}
 }
 void Customer::displayCustomersData()
 {
@@ -217,7 +235,7 @@ void Customer::displayHeader()
 {
 	cout << endl;
 	printf("%10s+-----------------------------------------------------------------------------------------------------------+\n", " ");
-	printf("%10s| Num \t| User Id \t| Name\t\t | Email \t\t| Age \t| Address | Phone             |\n"," ");
+	printf("%10s| Num \t| User Id \t| Name\t\t | Username \t\t| Age \t| Address | Phone             |\n"," ");
 	printf("%10s+-----------------------------------------------------------------------------------------------------------+\n", " ");
 }
 string Customer::toString(int i)
@@ -256,4 +274,26 @@ void Customer::displayFlightsBookedByUser(string id)
 		}
 	}
 	if (!isFound) cout << "No customer with the id found!\n";
+}
+void Customer::addNewCustomerByAdmin()
+{
+	printf("\nEnter customer\'s name: \t");
+	string name; cin >> name;
+	printf("Enter customer\'s username: \t");
+	string email; cin >> email;
+	while (isUniqueData(email))
+	{
+		printf("\n\n\t\tERROR!!! User with the same username already exists...\n\n");
+		printf("Enter customer username: \t");
+		cin >> email;
+	}
+	printf("Enter customer\'s password: \t");
+	string password; cin >> password;
+	printf("Enter customer\'s phone number :\t");
+	string phone; cin >> phone;
+	printf("Enter customer\'s address :\t");
+	string address; cin >> address;
+	printf("Enter customer\'s age :\t");
+	int age; cin >> age;
+	customerCollection.push_back(Customer(name, email, password, phone, address, age));
 }

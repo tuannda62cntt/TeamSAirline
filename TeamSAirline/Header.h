@@ -10,6 +10,7 @@
 #include <list>
 #include <iomanip>
 #include <algorithm>
+#include <Windows.h>
 
 #define _USE_MATH_DEFINES
 #include <cmath>
