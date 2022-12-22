@@ -111,9 +111,9 @@ void FlightReservation::cancelFlight(string userID)
 		{
 			if (customer.customerCollection[i].flightsRegisteredByUser.size() != 0)
 			{
-				printf("%50s %s Here is the list of all the Flights registered by you %s", " ", "++++++++++++++", "++++++++++++++");
+				printf("\n\n%50s %s Here is the list of all the Flights registered by you %s", " ", "++++++++++++++", "++++++++++++++");
 				displayFlightsRegisteredByOneUser(userID);
-				cout << "Enter the flight number you want to cancel: \t";
+				cout << "\n\nEnter the flight number you want to cancel: \t";
 				cin >> flightNum;
 				cout << "Enter number of tickets to cancel: \t";
 				int numOfTickets; cin >> numOfTickets;
@@ -127,7 +127,7 @@ void FlightReservation::cancelFlight(string userID)
 						numOfTicketsForFlight = customer.customerCollection[i].numOfTicketsBookedByUser.at(j);
 						while (numOfTickets > numOfTicketsForFlight)
 						{
-							cout << "Number of Tickets cannot be greater than " << numOfTicketsForFlight << " for this flight!" << endl;
+							cout << "\n\n\t\tNumber of Tickets cannot be greater than " << numOfTicketsForFlight << " for this flight!\n" << endl;
 							cout << "Enter number of tickets to cancel: \t";
 							cin >> numOfTickets;
 						}
@@ -139,6 +139,10 @@ void FlightReservation::cancelFlight(string userID)
 								if (flightNum == customer.customerCollection[i].flightsRegisteredByUser[z].getFlightNumber())
 								{
 									customer.customerCollection[i].flightsRegisteredByUser.erase(remove(customer.customerCollection[i].flightsRegisteredByUser.begin(), customer.customerCollection[i].flightsRegisteredByUser.end(), customer.customerCollection[i].flightsRegisteredByUser[z]), customer.customerCollection[i].flightsRegisteredByUser.end());
+									cout << "\n\n\t\tThis flight has been successfully deleted from your registed flight list...\n\n";
+									cout << "\t\tReturning...";
+									Sleep(2000);
+									system("CLS");
 									break;
 								}
 							}
@@ -149,6 +153,10 @@ void FlightReservation::cancelFlight(string userID)
 							ticketsToBeReturned = numOfTickets;
 							int temp = numOfTicketsForFlight - numOfTickets;
 							customer.customerCollection[i].numOfTicketsBookedByUser.at(j) = temp;
+							cout << "\n\n\t\tThis flight has been successfully updated...\n\n";
+							cout << "\t\tReturning...";
+							Sleep(2000);
+							system("CLS");
 						}
 						for (int k = 0; k < flight.flightList.size(); k++)
 						{
@@ -161,8 +169,14 @@ void FlightReservation::cancelFlight(string userID)
 					}
 				}
 			} 
-			else cout << "No Flight Has been Registered by you with ID \"\"" << flightNum << "\"\".....";
-			if (!isFound) cout << "ERROR!!! Couldn't find Flight with ID \"" << flightNum << "\".....";
+			else cout << "\n\n\t\tNo Flight Has been Registered by you with ID \"\"" << flightNum << "\"\".....\n\n";
+			if (!isFound)
+			{
+				cout << "\n\n\t\tERROR!!! Couldn't find Flight with ID \"" << flightNum << "\".....\n\n";
+				cout << "\t\tReturning...";
+				Sleep(2000);
+				system("CLS");
+			}
 		}
 	}
 }

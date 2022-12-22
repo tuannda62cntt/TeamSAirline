@@ -30,13 +30,13 @@ void User::mainProgram()
     }
     do
     {
-        system("CLS");
         role.adminUserNameAndPassword[0][0] = "root";
         role.adminUserNameAndPassword[0][1] = "root";
         role.adminUserNameAndPassword[1][0] = "admin";
         role.adminUserNameAndPassword[1][1] = "admin";
         if (desiredOption == 1)
         {
+            system("CLS");
             cout << "\n\nEnter the UserName to login to the Management System: \t";
             string username; cin >> username;
             cout << "Enter the Password to login to the Management System: \t";
@@ -58,7 +58,7 @@ void User::mainProgram()
             {
                 system("CLS");
                 int desiredChoice;
-                printf("%-20s", " ");
+                printf("\n\n%-20s", " ");
                 cout << "Logged in Successfully as \"" << username << "\"... For further Proceedings, enter a value from below...." << endl;
                 do
                 {
@@ -283,31 +283,60 @@ void User::mainProgram()
                     }
                     else if (desiredChoice == 2)
                     {
+                        system("CLS");
                         customerList.editUserInfo(userID);
+                        cout << "\n\n\t\tYour Data has been updated!\n\n";
+                        cout << "\t\tReturning...";
+                        Sleep(2000);
+                        system("CLS");
                     }
                     else if (desiredChoice == 3)
                     {
+                        system("CLS");
                         cout << "\n\nAre you sure to delete your acount? Enter \"Y/y\" to confirm: \t";
                         string confirmation; cin >> confirmation;
                         if (confirmation == "Y" || confirmation == "y")
                         {
                             customerList.deleteUser(userID);
-                            cout << "\n\n\t\tUser " << username << " has been delete!\n" << endl;
                             desiredChoice = 0;
                         }
-                        else cout << "\t\tAction has been cancelled!\n" << endl;
+                        else cout << "\n\n\t\tAction has been cancelled!\n" << endl;
+                        cout << "\t\tReturning...";
+                        Sleep(2000);
+                        system("CLS");
                     }
                     else if (desiredChoice == 4)
                     {
+                        system("CLS");
                         flightList.displayFlightSchedule();
+                        string exit;
+                        cout << "\n\n\t\tPress 0 to exit...";
+                        do
+                        { 
+                            cin >> exit;
+                        } while (exit != "0");
+                        cout << "\n\n\t\tReturning...";
+                        Sleep(2000);
+                        system("CLS");
                     }
                     else if (desiredChoice == 5)
                     {
+                        system("CLS");
                         bookingAndReserving.cancelFlight(userID);
                     }
                     else if (desiredChoice == 6)
                     {
+                        system("CLS");
                         bookingAndReserving.displayFlightsRegisteredByOneUser(userID);
+                        cout << "\n\n\t\tPress 0 to exit...";
+                        string exit;
+                        do
+                        {
+                            cin >> exit;
+                        } while (exit != "0");
+                        cout << "\n\n\t\tReturing...";
+                        Sleep(2000);
+                        system("CLS");
                     }
                     else if (desiredChoice == 0)
                     {
@@ -320,7 +349,10 @@ void User::mainProgram()
                     {
                         if (desiredChoice != 0)
                         {
-                            cout << "\t\tInvalid Choice... You've Have to login again...";
+                            cout << "\n\n\t\tInvalid Choice... You've Have to login again...";
+                            cout << "\n\n\t\tReturning...";
+                            Sleep(2000);
+                            system("CLS");
                         }
                         desiredChoice = 0;
                     }
@@ -344,8 +376,20 @@ void User::mainProgram()
         }
         else if (desiredOption == 0)
         {
-            cout << "\n\n\t\tThanks for using TeamS Airline System!\n\n";
-            break;
+            cout << "\n\n\t\tAre you sure you want to exit? Enter \"Y/y\" to confirm: \t";
+            string exit; cin >> exit;
+            if (exit == "Y" || exit == "y")
+            {
+                cout << "\n\n\t\tThanks for using TeamS Airline System!\n\n";
+                break;
+            }
+            else
+            {
+                cout << "\n\n\t\tAction has been cancelled...";
+                cout << "\n\n\t\tReturning...";
+                Sleep(2000);
+                system("CLS");
+            }
         }
         displayMainMenu();
         cin >> desiredOption;
@@ -356,8 +400,21 @@ void User::mainProgram()
         }
         if (desiredOption == 0)
         {
-            cout << "\n\n\t\tThanks for using TeamS Airline System!\n\n";
-            break;
+            cout << "\n\n\t\tAre you sure you want to exit? Enter \"Y/y\" to confirm: \t";
+            string exit; cin >> exit;
+            if (exit == "Y" || exit == "y")
+            {
+                cout << "\n\n\t\tThanks for using TeamS Airline System!\n\n";
+                break;
+            }
+            else
+            {
+                cout << "\n\n\t\tAction has been cancelled...";
+                cout << "\n\n\t\tReturning...";
+                Sleep(2000);
+                system("CLS");
+                desiredOption = 9;
+            }
         }
     } while (desiredOption != 0);
 }
