@@ -13,13 +13,14 @@ void User::displayMainMenu()
 void User::mainProgram()
 {
     int countNumOfUsers = 2;
+    DisplayArtwork display;
     RoleAndPermission role;
     Flight flightList;
     Customer customerList;
     FlightReservation bookingAndReserving;
     flightList.flightScheduler();
-
-    printf("\n\t\t\t\t\t+++++++++++++ Welcome to TeamS AirLines +++++++++++++\n\nTo Further Proceed, Please enter a value.\n");
+    display.welcomeScreen(1);
+    printf("\n\n\t\t\t\t\t\t\t\t\t+++++++++++++ Welcome to TeamS AirLines +++++++++++++\n\nTo Further Proceed, Please enter a value.\n");
     printf("\n***** Default Username && Password is root-root ***** \nUsing Default Credentials will restrict you to just view the list of Passengers....\n\n");
     displayMainMenu();
     int desiredOption; cin >> desiredOption;
@@ -37,6 +38,7 @@ void User::mainProgram()
         if (desiredOption == 1)
         {
             system("CLS");
+            display.userScreen(1);
             cout << "\n\nEnter the UserName to login to the Management System: \t";
             string username; cin >> username;
             cout << "Enter the Password to login to the Management System: \t";
@@ -78,6 +80,7 @@ void User::mainProgram()
                     if (desiredChoice == 1)
                     {
                         system("CLS");
+                        display.adminScreen(1);
                         customerList.addNewCustomerByAdmin();
                         cout << "\n\n\t\tAdd new customer successfully!\n\n";
                         cout << "\t\tReturning...";
@@ -87,16 +90,13 @@ void User::mainProgram()
                     else if (desiredChoice == 2)
                     {
                         system("CLS");
+                        display.adminScreen(2);
                         customerList.displayCustomersData();
                         cout << "Enter the Customer ID to Search: \t";
                         string customerID; cin >> customerID;
                         customerList.searchUser(customerID);
-                        cout << "\n\n\t\tPress 0 to exit...";
-                        string exit;
-                        do
-                        {
-                            cin >> exit;
-                        } while (exit != "0");
+                        cout << "\n\n\t\tPress any key to exit...";
+                        getch();
                         cout << "\n\n\t\tReturning...";
                         Sleep(2000);
                         system("CLS");
@@ -104,6 +104,7 @@ void User::mainProgram()
                     else if (desiredChoice == 3)
                     {
                         system("CLS");
+                        display.customerScreen(2);
                         customerList.displayCustomersData();
                         cout << "\nEnter the Customer ID to Update data: \t";
                         string customerID; cin >> customerID;
@@ -126,6 +127,7 @@ void User::mainProgram()
                     else if (desiredChoice == 4)
                     {
                         system("CLS");
+                        display.customerScreen(3);
                         customerList.displayCustomersData();
                         cout << "\nEnter the Customer ID to Delete: \t";
                         string customerID; cin >> customerID;
@@ -144,14 +146,11 @@ void User::mainProgram()
                     else if (desiredChoice == 5)
                     {
                         system("CLS");
+                        display.adminScreen(3);
                         cout << endl;
                         customerList.displayCustomersData();
-                        string exit;
-                        cout << "\n\n\t\tPress 0 to exit....";
-                        do
-                        {
-                            cin >> exit;
-                        } while (exit != "0");
+                        cout << "\n\n\t\tPress any key to exit...";
+                        getch();
                         cout << "\n\n\t\tReturning...";
                         Sleep(2000);
                         system("CLS");
@@ -159,16 +158,13 @@ void User::mainProgram()
                     else if (desiredChoice == 6)
                     {
                         system("CLS");
+                        display.customerScreen(6);
                         customerList.displayCustomersData();
                         cout << "\nEnter the Customer ID to display all flight registed by that user: \t";
                         string customerID; cin >> customerID;
                         bookingAndReserving.displayFlightsRegisteredByOneUser(customerID);
-                        string exit;
-                        cout << "\n\n\t\tPress 0 to exit....";
-                        do
-                        {
-                            cin >> exit;
-                        } while (exit != "0");
+                        cout << "\n\n\t\tPress any key to exit...";
+                        getch();
                         cout << "\n\n\t\tReturning...";
                         Sleep(2000);
                         system("CLS");
@@ -176,13 +172,10 @@ void User::mainProgram()
                     else if (desiredChoice == 7)
                     {
                         system("CLS");
+                        display.customerScreen(4);
                         flightList.displayFlightSchedule();
-                        string exit;
-                        cout << "\n\n\t\tPress 0 to exit....";
-                        do
-                        {
-                            cin >> exit;
-                        } while (exit != "0");
+                        cout << "\n\n\t\tPress any key to exit...";
+                        getch();
                         cout << "\n\n\t\tReturning...";
                         Sleep(2000);
                         system("CLS");
@@ -190,6 +183,7 @@ void User::mainProgram()
                     else if (desiredChoice == 8)
                     {
                         system("CLS");
+                        display.adminScreen(4);
                         flightList.displayFlightSchedule();
                         cout << "\nEnter the flight number to delete: \t";
                         string flightNo; cin >> flightNo;
@@ -200,6 +194,8 @@ void User::mainProgram()
                     }
                     else if (desiredChoice == 0)
                     {
+                        cout << "\n\n\n";
+                        display.customerScreen(10);
                         cout << "\n\n\t\tLogging out from \"" << username << "\"...\n\n";
                         Sleep(2000);
                         system("CLS");
@@ -217,7 +213,8 @@ void User::mainProgram()
         else if (desiredOption == 2)
         {
             system("CLS");
-            cout << "\nEnter the username to register: \t";
+            display.userScreen(2);
+            cout << "\n\nEnter the username to register: \t";
             string username; cin >> username;
             cout << "Enter the password to register: \t";
             string password; cin >> password;
@@ -237,6 +234,8 @@ void User::mainProgram()
         }
         else if (desiredOption == 3)
         {
+            system("CLS");
+            display.userScreen(3);
             cout << "\n\nEnter the username to login: \t";
             string username; cin >> username;
             cout << "Enter password: \t";
@@ -265,6 +264,7 @@ void User::mainProgram()
                     if (desiredChoice == 1)
                     {
                         system("CLS");
+                        display.customerScreen(1);
                         flightList.displayFlightSchedule();
                         cout << "\nEnter the flight number to book: \t";
                         string flightNo; cin >> flightNo;
@@ -284,6 +284,7 @@ void User::mainProgram()
                     else if (desiredChoice == 2)
                     {
                         system("CLS");
+                        display.customerScreen(2);
                         customerList.editUserInfo(userID);
                         cout << "\n\n\t\tYour Data has been updated!\n\n";
                         cout << "\t\tReturning...";
@@ -293,6 +294,7 @@ void User::mainProgram()
                     else if (desiredChoice == 3)
                     {
                         system("CLS");
+                        display.customerScreen(3);
                         cout << "\n\nAre you sure to delete your acount? Enter \"Y/y\" to confirm: \t";
                         string confirmation; cin >> confirmation;
                         if (confirmation == "Y" || confirmation == "y")
@@ -308,13 +310,10 @@ void User::mainProgram()
                     else if (desiredChoice == 4)
                     {
                         system("CLS");
+                        display.customerScreen(4);
                         flightList.displayFlightSchedule();
-                        string exit;
-                        cout << "\n\n\t\tPress 0 to exit...";
-                        do
-                        { 
-                            cin >> exit;
-                        } while (exit != "0");
+                        cout << "\n\n\t\tPress any key to exit...";
+                        getch();
                         cout << "\n\n\t\tReturning...";
                         Sleep(2000);
                         system("CLS");
@@ -322,24 +321,24 @@ void User::mainProgram()
                     else if (desiredChoice == 5)
                     {
                         system("CLS");
+                        display.customerScreen(5);
                         bookingAndReserving.cancelFlight(userID);
                     }
                     else if (desiredChoice == 6)
                     {
                         system("CLS");
+                        display.customerScreen(6);
                         bookingAndReserving.displayFlightsRegisteredByOneUser(userID);
-                        cout << "\n\n\t\tPress 0 to exit...";
-                        string exit;
-                        do
-                        {
-                            cin >> exit;
-                        } while (exit != "0");
+                        cout << "\n\n\t\tPress any key to exit...";
+                        getch();
                         cout << "\n\n\t\tReturing...";
                         Sleep(2000);
                         system("CLS");
                     }
                     else if (desiredChoice == 0)
                     {
+                        cout << "\n\n\n";
+                        display.customerScreen(10);
                         cout << "\n\n\t\tLogging out from \"" << username << "\"\...\n\n";
                         cout << "\t\tReturning...";
                         Sleep(2000);
@@ -368,6 +367,8 @@ void User::mainProgram()
         }
         else if (desiredOption == 4)
         {
+            system("CLS");
+            display.userScreen(4);
             customerList.addNewCustomer();
             cout << "\n\n\t\tRegisted successfully!\n\n";
             cout << "\t\tReturning...";
@@ -381,6 +382,8 @@ void User::mainProgram()
             if (exit == "Y" || exit == "y")
             {
                 cout << "\n\n\t\tThanks for using TeamS Airline System!\n\n";
+                display.welcomeScreen(2);
+                Sleep(3000);
                 break;
             }
             else
@@ -405,6 +408,8 @@ void User::mainProgram()
             if (exit == "Y" || exit == "y")
             {
                 cout << "\n\n\t\tThanks for using TeamS Airline System!\n\n";
+                display.welcomeScreen(2);
+                Sleep(3000);
                 break;
             }
             else

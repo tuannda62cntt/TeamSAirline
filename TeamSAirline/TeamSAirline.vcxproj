@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Customer.cpp" />
+    <ClCompile Include="DisplayArtwork.cpp" />
     <ClCompile Include="Flight.cpp" />
     <ClCompile Include="FlightReservation.cpp" />
     <ClCompile Include="RandomGenerator.cpp" />
@@ -149,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Customer.h" />
+    <ClInclude Include="DisplayArtwork.h" />
     <ClInclude Include="Flight.h" />
     <ClInclude Include="FlightReservation.h" />
     <ClInclude Include="Header.h" />

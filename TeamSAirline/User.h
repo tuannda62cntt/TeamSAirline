@@ -3,6 +3,7 @@
 #define User_Header
 #include "Header.h"
 #include "FlightReservation.h"
+#include "DisplayArtwork.h"
 class User
 {
 protected:

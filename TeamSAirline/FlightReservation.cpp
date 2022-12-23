@@ -19,7 +19,7 @@ void FlightReservation::bookFlight(string flightNo, int numOfTickets, string use
 						flight.flightList[i].setNumOfSeats(temp);
 						customer.customerCollection[j].addNewFlightToCustomerList(flight.getFlightList()[i]);
 						customer.customerCollection[j].numOfTicketsBookedByUser.push_back(numOfTickets);
-						cout << "\n\n\t\tBooking flight successfully...\n\n";
+						cout << "\n\n\t\tBooked flight successfully...\n\n";
 					}
 					else
 					{

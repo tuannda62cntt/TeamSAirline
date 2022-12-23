@@ -11,6 +11,7 @@
 #include <iomanip>
 #include <algorithm>
 #include <Windows.h>
+#include <conio.h>
 
 #define _USE_MATH_DEFINES
 #include <cmath>
