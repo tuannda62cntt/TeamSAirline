@@ -3,6 +3,8 @@
 
 int main()
 {
+    HWND hWnd = GetConsoleWindow();
+    ShowWindow(hWnd, SW_SHOWMAXIMIZED);
     srand(time(NULL));
     User user;
     user.mainProgram();
