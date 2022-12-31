@@ -216,7 +216,7 @@ void DisplayArtwork::setColorMenu()
 	system(temp);
 	printf("%80sDone!\n\n", " ");
 	Sleep(2000);
-	printf("%80sStarting the program in 3 ", " ");
+	printf("%80sProgram starts in 3 ", " ");
 	Sleep(1000);
 	cout << "2 ";
 	Sleep(1000);

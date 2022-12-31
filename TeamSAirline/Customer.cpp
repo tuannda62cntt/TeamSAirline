@@ -173,10 +173,10 @@ void Customer::editUserInfo(string id)
 			cout << "\nEnter the new name of the Passenger:\t";
 			cin >> name;
 			customerCollection[i].setName(name);
-			cout << "Enter the new email address of Passenger " + name + ":\t";
+			cout << "Enter the new username of Passenger " + name + ":\t";
 			cin >> temp;
 			customerCollection[i].setEmail(temp);
-			cout << "Enter the new Phone number of Passenger " + name + ":\t";
+			cout << "Enter the new phone number of Passenger " + name + ":\t";
 			cin >> temp;
 			customerCollection[i].setPhone(temp);
 			cout << "Enter the new address of Passenger " + name + ":\t";
