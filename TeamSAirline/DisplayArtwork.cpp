@@ -1,3 +1,4 @@
+#pragma warning(disable : 4996)
 #include "DisplayArtwork.h"
 
 void DisplayArtwork::welcomeScreen(int option)
@@ -170,4 +171,55 @@ void DisplayArtwork::adminScreen(int option)
 		printf("%50s88  .8D 88.     88booo. 88.        88    88.          88      88booo.   .88.   88. ~8~ 88   88    88   \n", " ");
 		printf("%50sY8888D' Y88888P Y88888P Y88888P    YP    Y88888P      YP      Y88888P Y888888P  Y888P  YP   YP    YP   \n", " ");
 	}
+}
+
+void DisplayArtwork::setColorMenu()
+{
+	char color[100] = "color ";
+	int t, bg;
+	char text[100];
+	char bgcolor[100];
+	printf("\n\n\n\n\n\n");
+	printf("%50s.d8888. d88888b d888888b d888888b d888888b d8b   db  d888b        .o88b.  .d88b.  db       .d88b.  d8888b.\n", " ");
+	printf("%50s88'  YP 88'     `~~88~~' `~~88~~'   `88'   888o  88 88' Y8b      d8P  Y8 .8P  Y8. 88      .8P  Y8. 88  `8D\n", " ");
+	printf("%50s`8bo.   88ooooo    88       88       88    88V8o 88 88           8P      88    88 88      88    88 88oobY'\n", " ");
+	printf("%50s  `Y8b. 88~~~~~    88       88       88    88 V8o88 88  ooo      8b      88    88 88      88    88 88`8b  \n", " ");
+	printf("%50sdb   8D 88.        88       88      .88.   88  V888 88. ~8~      Y8b  d8 `8b  d8' 88booo. `8b  d8' 88 `88.\n", " ");
+	printf("%50s`8888Y' Y88888P    YP       YP    Y888888P VP   V8P  Y888P        `Y88P'  `Y88P'  Y88888P  `Y88P'  88   YD\n", " ");
+	printf("%50s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", " ");
+	printf("\n\n\n\n\n");
+	printf("%80sTo set color, please enter a value from below...\n\n", " ");
+	printf("%80s(a) 0 - Black\t\t\t", " ");
+	printf("(b) 1 - Blue\n");
+	printf("%80s(c) 2 - Green\t\t\t", " ");
+	printf("(d) 3 - Aqua\n");
+	printf("%80s(e) 4 - Red\t\t\t", " ");
+	printf("(f) 5 - Purple\n");
+	printf("%80s(g) 6 - Yellow\t\t\t", " ");
+	printf("(h) 7 - White\n");
+	printf("%80s(i) 8 - Gray\n\n", " ");
+	do
+	{
+		printf("%80sEnter text color: ", " ");
+		cin >> t;
+		sprintf(text, "%d", t);
+		printf("%80sEnter background color: ", " ");
+		cin >> bg;
+		cout << endl;
+	} while (t < 0 || t > 8 || bg < 0 || bg > 8);
+	printf("%80sSetting color, please wait...\n\n", " ");
+	Sleep(2000);
+	sprintf(bgcolor, "%d", bg);
+	strcat(color, bgcolor);
+	strcat(color, text);
+	const char* temp = color;
+	system(temp);
+	printf("%80sDone!\n\n", " ");
+	Sleep(2000);
+	printf("%80sStarting the program in 3 ", " ");
+	Sleep(1000);
+	cout << "2 ";
+	Sleep(1000);
+	cout << "1...";
+	Sleep(1000);
 }

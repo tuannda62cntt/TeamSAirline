@@ -5,6 +5,7 @@
 class DisplayArtwork
 {
 public:
+	void setColorMenu();
 	void welcomeScreen(int option);
 	void userScreen(int option);
 	void customerScreen(int option);

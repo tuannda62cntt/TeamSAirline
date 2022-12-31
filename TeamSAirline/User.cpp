@@ -19,6 +19,8 @@ void User::mainProgram()
     Customer customerList;
     FlightReservation bookingAndReserving;
     flightList.flightScheduler();
+    display.setColorMenu();
+    system("CLS");
     display.welcomeScreen(1);
     printf("\n\n\t\t\t\t\t\t\t\t\t+++++++++++++ Welcome to TeamS AirLines +++++++++++++\n\nTo Further Proceed, Please enter a value.\n");
     printf("\n***** Default Username && Password is root-root ***** \nUsing Default Credentials will restrict you to just view the list of Passengers....\n\n");
@@ -46,8 +48,8 @@ void User::mainProgram()
             cout << endl;
             if (role.isPrivilegedUserOrNot(username, password) == -1)
             {
-                printf("\n\n\t\tCannot find user with the entered credentials.... Try Creating New Credentials or get yourself register by pressing 2....\n");
-                cout << "\t\tReturning...";
+                printf("\n\n\t\tCannot find user with the entered credentials.... Try Creating New Credentials or get yourself register by pressing 2....");
+                cout << "\n\n\t\tReturning...";
                 Sleep(2000);
                 system("CLS");
             }   
