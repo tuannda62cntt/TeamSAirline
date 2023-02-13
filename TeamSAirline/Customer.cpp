@@ -3,7 +3,7 @@
 vector<Customer> Customer::customerCollection = {};
 
 /*Constructors*/
-Customer::Customer()
+Customer::Customer() //Class Customer
 {
 	this->userID = "";
 	this->email = "";
